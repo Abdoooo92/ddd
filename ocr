@@ -1,0 +1,16 @@
+import easyocr
+import cv2
+from matplotlib import pyplot as plt
+import numpy as np
+
+IMAGE_PATH = 'Attachment-1'
+#IMAGE_PATH = 'surf.jpeg'
+
+reader = easyocr.Reader(['en'])
+result = reader.readtext(IMAGE_PATH)
+result
+
+top_left = tuple(result[0][0][0])
+bottom_right = tuple(result[0][0][2])
+text = result[0][1]
+font = cv2.FONT_HERSHEY_SIMPLEX
